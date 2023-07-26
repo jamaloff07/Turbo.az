@@ -13,8 +13,6 @@
             <TextBlock Text="{Binding Color}" FontSize="16"/>
             <TextBlock Text="{Binding about}" FontSize="16"/>
 
-            <Image Source="{Binding ImageSource}" Width="200" Height="132" Margin="0,0,0,10"/>
-
 
         </StackPanel>
     </Grid>

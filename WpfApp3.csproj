@@ -18,6 +18,10 @@
     <None Remove="image\prius.jpg" />
     <None Remove="image\qalikk.jpg" />
     <None Remove="image\tuareg.jpg" />
+    <None Remove="Red_image\heart.png" />
+    <None Remove="Red_image\RedHeart.png" />
+    <None Remove="Red_image\RedUser.png" />
+    <None Remove="Red_image\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +35,10 @@
     <Resource Include="image\prius.jpg" />
     <Resource Include="image\qalikk.jpg" />
     <Resource Include="image\tuareg.jpg" />
+    <Resource Include="Red_image\heart.png" />
+    <Resource Include="Red_image\RedHeart.png" />
+    <Resource Include="Red_image\RedUser.png" />
+    <Resource Include="Red_image\user.png" />
   </ItemGroup>
 
 </Project>
