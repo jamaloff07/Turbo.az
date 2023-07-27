@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="450" Width="870">
     <Grid Height="450" Width="800">
 
 
@@ -16,24 +16,38 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="/Reklam/Reklam.JPG" Width="181" HorizontalAlignment="Left" Margin="-141,-192,0,-80" />
+
+            <Image Source="/Reklam/Reklam1.JPG" Width="181" Height="360" HorizontalAlignment="Right" Margin="0,-193,-136,-77" Grid.Column="2" />
+        </Grid>
 
 
-        <StackPanel Grid.Row="0" Margin="0,0,0,50" Background="#E1E1E1">
-            <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,450,0" Background="Transparent" BorderBrush="Transparent">
-                <StackPanel Orientation="Horizontal">
+
+        
+            
+        <StackPanel Grid.Row="0" Margin="-35,0,-35,50" Background="#E1E1E1">
+            <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,650,0" Background="Transparent" BorderBrush="Transparent">
+                <StackPanel >
                     <TextBlock x:Name="selectionText" Text="Tap.az" Foreground="SlateGray" FontSize="15" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="myImageButton1" MouseEnter="myImageButton1_MouseEnter" MouseLeave="myImageButton1_MouseLeave" Width="68" Height="25" Margin="130,-25,450,0" Background="Transparent" BorderBrush="Transparent">
-                <StackPanel Orientation="Horizontal">
+            <Button x:Name="myImageButton1" MouseEnter="myImageButton1_MouseEnter" MouseLeave="myImageButton1_MouseLeave" Width="68" Height="25" Margin="120,-25,650,0" Background="Transparent" BorderBrush="Transparent">
+                <StackPanel >
                     <TextBlock x:Name="selectionText1" Text="Bina.az" Foreground="SlateGray" FontSize="15" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="myImageButton2" MouseEnter="myImageButton2_MouseEnter" MouseLeave="myImageButton2_MouseLeave" Width="60" Height="25" Margin="280,-25,450,0" Background="Transparent" BorderBrush="Transparent">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="selectionText2" Text="Boss.az" Foreground="SlateGray" FontSize="15" Width="68" />
+            <Button x:Name="myImageButton2" MouseEnter="myImageButton2_MouseEnter" MouseLeave="myImageButton2_MouseLeave" Height="25" Margin="200,-25,600,0" Background="Transparent" BorderBrush="Transparent" Width="62">
+                <StackPanel >
+                    <TextBlock x:Name="selectionText2" Text="Boss.az" Foreground="SlateGray" FontSize="15" Width="64"  />
                 </StackPanel>
             </Button>
 
@@ -52,27 +66,26 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Background="Red"  Margin="0,-50,0,100">
-            <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" Margin="50,4,0,0" FontWeight="DemiBold"></TextBlock>
-            <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="200,-25,500,0"></TextBlock>
-            <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="320,-25,390,0"></TextBlock>
-            <TextBlock Text="Ehtiyat hisseleri ve aksesuarlar" FontSize="15" Foreground="White" Margin="440,-25,150,0"></TextBlock>
+        <StackPanel Grid.Row="1" Background="Red"  Margin="-35,-50,-35,100">
+            <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" Margin="80,4,0,0" FontWeight="DemiBold"></TextBlock>
+            <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="220,-25,500,0"></TextBlock>
+            <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="340,-25,390,0"></TextBlock>
+            <TextBlock Text="Ehtiyat hisseleri ve aksesuarlar" FontSize="15" Foreground="White" Margin="460,-25,150,0"></TextBlock>
 
 
         </StackPanel>
-        <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="0,-100,0,100">
+        <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="40,-100,40,100">
             <ComboBox x:Name="marka" HorizontalAlignment="Left" Margin="50,20,0,0" Text=" " Width="136" Height="35"  ItemsSource="{Binding markaNames}" SelectedItem="{Binding SelectedMarka}" SelectionChanged="Marka_SelectionChanged" />
             <ComboBox x:Name="model" HorizontalAlignment="Left" Margin="200,-35,0,0" Text=" " VerticalAlignment="Top" Width="136" Height="35"  ItemsSource="{Binding modelNames}"/>
-            <Button Content="Button" Width="136" Height="35" Margin="50,-35,0,0"/>
+            <Button Content="Button" Width="136" Height="35" Margin="250,-35,0,0"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="3" Background="#ECECEC" Margin="0,-100,0,150">
+        <StackPanel Grid.Row="3" Background="#ECECEC" Margin="40,-100,40,150">
             <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Margin="50,5,0,0"></TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="4" Margin="0,-150,0,10" Background="#F5F5F5">
 
-            <WrapPanel Grid.ColumnSpan="2" Margin="50,0,0,0">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="643" Height="224" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Grid.Row="4" Margin="40,-150,40,0" Background="#F5F5F5" Grid.RowSpan="3">
+            <WrapPanel Grid.ColumnSpan="2" Margin="40,0,40,0" Width="650">
                     <Canvas x:Name="imageStackPanel"  Margin="20" Height="906" >
                         <Image Source="/image/priora.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
                         <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="Tuareg"/>
@@ -92,7 +105,6 @@
 
 
 
-                </ScrollViewer>
 
 
 
@@ -101,6 +113,7 @@
             </WrapPanel>
         </StackPanel>
 
+       
 
     </Grid>
 </Window>

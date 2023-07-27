@@ -22,6 +22,16 @@
     <None Remove="Red_image\RedHeart.png" />
     <None Remove="Red_image\RedUser.png" />
     <None Remove="Red_image\user.png" />
+    <None Remove="Reklam\Reklam.JPG" />
+    <None Remove="Reklam\Reklam1.JPG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Reklam\Reklam1.JPG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Reklam\Reklam.JPG" />
   </ItemGroup>
 
   <ItemGroup>
