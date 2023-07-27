@@ -16,21 +16,13 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Column="0" Source="/Reklam/Reklam.JPG" Width="181" HorizontalAlignment="Left" Margin="-141,-192,0,-80" />
-
-            <Image Source="/Reklam/Reklam1.JPG" Width="181" Height="360" HorizontalAlignment="Right" Margin="0,-193,-136,-77" Grid.Column="2" />
-        </Grid>
 
 
 
-        
+
+
+
+        <ScrollViewer>
             
         <StackPanel Grid.Row="0" Margin="-35,0,-35,50" Background="#E1E1E1">
             <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,650,0" Background="Transparent" BorderBrush="Transparent">
@@ -86,20 +78,20 @@
 
         <StackPanel Grid.Row="4" Margin="40,-150,40,0" Background="#F5F5F5" Grid.RowSpan="3">
             <WrapPanel Grid.ColumnSpan="2" Margin="40,0,40,0" Width="650">
-                    <Canvas x:Name="imageStackPanel"  Margin="20" Height="906" >
-                        <Image Source="/image/priora.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
-                        <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="Tuareg"/>
-                        <Image Source="/Image/4goz.jpg" Width="162" Height="115" Canvas.Left="426" Canvas.Top="145" MouseLeftButtonUp="CarImage_Click" Tag="4Goz"/>
-                        <Image Source="/Image/60kuza.jpg" Width="158" Height="107" Canvas.Left="31" Canvas.Top="150" MouseLeftButtonUp="CarImage_Click" Tag="e60"/>
-                        <Image Source="/Image/camry.jpg" Width="169" Height="123" HorizontalAlignment="Center" Canvas.Left="422" Canvas.Top="7" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry"/>
-                        <Image Source="/Image/07.jpg" Width="192" Height="105" Canvas.Left="211" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="2107"/>
-                        <Image Source="/image/qalikk.jpg" Width="273" Height="117" Canvas.Left="-32" Canvas.Top="278" MouseLeftButtonUp="CarImage_Click" Tag="brabus"/>
-                        <Image Source="/image/download.jpg" Width="199" Height="117" Canvas.Left="203" Canvas.Top="281" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="sessot"/>
-                        <Image Source="/image/dodge.jpg" Width="160" Height="111" Canvas.Left="424" Canvas.Top="285" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger"/>
+                <Canvas x:Name="imageStackPanel"  Margin="20" Height="906" >
+                    <Image Source="/image/priora.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
+                    <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="Tuareg"/>
+                    <Image Source="/Image/4goz.jpg" Width="162" Height="115" Canvas.Left="426" Canvas.Top="145" MouseLeftButtonUp="CarImage_Click" Tag="4Goz"/>
+                    <Image Source="/Image/60kuza.jpg" Width="158" Height="107" Canvas.Left="31" Canvas.Top="150" MouseLeftButtonUp="CarImage_Click" Tag="e60"/>
+                    <Image Source="/Image/camry.jpg" Width="169" Height="123" HorizontalAlignment="Center" Canvas.Left="422" Canvas.Top="7" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry"/>
+                    <Image Source="/Image/07.jpg" Width="192" Height="105" Canvas.Left="211" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="2107"/>
+                    <Image Source="/image/qalikk.jpg" Width="273" Height="117" Canvas.Left="-32" Canvas.Top="278" MouseLeftButtonUp="CarImage_Click" Tag="brabus"/>
+                    <Image Source="/image/download.jpg" Width="199" Height="117" Canvas.Left="203" Canvas.Top="281" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="sessot"/>
+                    <Image Source="/image/dodge.jpg" Width="160" Height="111" Canvas.Left="424" Canvas.Top="285" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger"/>
 
 
 
-                    </Canvas>
+                </Canvas>
 
 
 
@@ -113,7 +105,8 @@
             </WrapPanel>
         </StackPanel>
 
-       
 
+
+        </ScrollViewer>
     </Grid>
 </Window>
