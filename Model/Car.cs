@@ -12,7 +12,8 @@ namespace WpfApp3.Model
         public string? model { get; set; }
         public string? year { get; set; }
         public string? haqqinda { get; set; }
-
+        public string? Price { get; internal set; }
+        public string? ImagePath { get; internal set; }
     }
 
 

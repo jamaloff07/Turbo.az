@@ -9,7 +9,7 @@
         VerticalAlignment="Center"
     mc:Ignorable="d"
         Title="MainView" Height="450" Width="870">
-    <Grid >
+    <Grid  Height="450" Width="870">
 
 
         <Grid.RowDefinitions>
@@ -70,9 +70,13 @@
 
         </StackPanel>
         <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="40,-100,40,100">
-            <ComboBox x:Name="marka" HorizontalAlignment="Left" Margin="50,20,0,0" Text=" " Width="136" Height="35"  ItemsSource="{Binding markaNames}" SelectedItem="{Binding SelectedMarka}" SelectionChanged="Marka_SelectionChanged" />
-            <ComboBox x:Name="model" HorizontalAlignment="Left" Margin="200,-35,0,0" Text=" " VerticalAlignment="Top" Width="136" Height="35"  ItemsSource="{Binding modelNames}"/>
-            <Button Content="Button" Width="136" Height="35" Margin="250,-35,0,0"/>
+            <ComboBox x:Name="markaComboBox" Grid.Row="1" Margin="20,0,0,0" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="MarkaComboBox_SelectionChanged">
+                <!-- ComboBox içeriği -->
+            </ComboBox>
+
+            <ComboBox x:Name="modelComboBox" Grid.Row="1" Margin="150,0,0,0" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="ModelComboBox_SelectionChanged" IsEnabled="False">
+                <!-- ComboBox içeriği -->
+            </ComboBox>
 
         </StackPanel>
         <StackPanel Grid.Row="3" Background="#ECECEC" Margin="40,-100,40,150">
@@ -110,16 +114,7 @@
                 </ScrollViewer>
             </WrapPanel>
 
-            <ListBox x:Name="resultsList" Margin="20,60,20,20">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding ImagePath}" Width="50" Height="50" Margin="0,5"/>
-                            <TextBlock Text="{Binding Brand}" FontWeight="Bold" Margin="10,5"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+         
             <TextBlock x:Name="carDetailsText" Margin="20, 250, 20, 20"/>
         </StackPanel>
 

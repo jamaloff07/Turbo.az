@@ -19,10 +19,13 @@ namespace WpfApp3.Views
 {
     public partial class MainView : Window
     {
+        private MainViewModel viewModel;
+
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            viewModel = new MainViewModel();
+            DataContext = viewModel;
         }
 
 
@@ -184,42 +187,7 @@ namespace WpfApp3.Views
         }
 
 
-        private void Marka_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (DataContext is MainViewModel viewModel)
-            {
-                viewModel.modelNames.Clear();
 
-                switch (viewModel.SelectedMarka)
-                {
-                    case "Mercedes":
-                        viewModel.modelNames.Add("4 goz");
-                        viewModel.modelNames.Add("sessot");
-                        viewModel.modelNames.Add("brabus");
-                        break;
-                    case "BMW":
-                        viewModel.modelNames.Add("e60");
-                        break;
-                    case "Toyota":
-                        viewModel.modelNames.Add("camry");
-                        break;
-                    case "Wolksvagen":
-                        viewModel.modelNames.Add("tuareg");
-                        break;
-                    case "dodge":
-                        viewModel.modelNames.Add("challenger");
-                        break;
-                    case "vaz":
-                        viewModel.modelNames.Add("2107");
-                        break;
-                    case "lada":
-                        viewModel.modelNames.Add("priora");
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
 
         public class CarInfo
         {
@@ -309,5 +277,71 @@ namespace WpfApp3.Views
             userImage.Source = new BitmapImage(heartResourceUri);
             selectionTexttu.Foreground = new SolidColorBrush(Colors.SlateGray);
         }
+    }
+    private void MarkaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (DataContext is MainViewModel viewModel)
+        {
+            viewModel.modelNames.Clear();
+
+            switch (viewModel.SelectedMarka)
+            {
+                case "Mercedes":
+                    viewModel.modelNames.Add("4 goz");
+                    viewModel.modelNames.Add("sessot");
+                    viewModel.modelNames.Add("brabus");
+                    break;
+                case "BMW":
+                    viewModel..Add("e60");
+                    break;
+                case "Toyota":
+                    viewModel.Modeller.Add("camry");
+                    break;
+                case "Wolksvagen":
+                    viewModel.Modeller.Add("tuareg");
+                    break;
+                case "Dodge":
+                    viewModel.Modeller.Add("challenger");
+                    break;
+                case "VAZ":
+                    viewModel.Modeller.Add("2107");
+                    break;
+                case "Lada":
+                    viewModel.Modeller.Add("priora");
+                    break;
+                // Diğer markaların modellerini de buraya ekleyin...
+                default:
+                    break;
+            }
+        }
+
+
+    }
+
+
+    private void ModelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (sender is ComboBox comboBox && DataContext is MainViewModel viewModel)
+        {
+            // Seçilen model adını alıyoruz
+            string selectedModel = comboBox.SelectedItem as string;
+
+            // Burada seçilen model adına göre yapmak istediğiniz işlemleri yapabilirsiniz
+            // Örneğin, seçilen model adına göre araba bilgilerini alıp ekranda gösterebilirsiniz
+            // Bu işlem için GetCarInfoByModel(selectedModel) gibi bir metodunuz olabilir.
+            // Ancak, bu metodunuzun CarInfo tipinde bir nesne döndürmesi gerektiğini unutmayın.
+            // Ardından carDetailsText.Text = selectedCar.ToString(); gibi bir kodla bilgileri gösterebilirsiniz.
+        }
+    }
+}
+
+// ViewModel sınıfı için kullanılabilecek örnek bir sınıf
+public class MainViewModel
+{
+    public ObservableCollection<string> modelNames { get; set; }
+
+    public MainViewModel()
+    {
+        modelNames = new ObservableCollection<string>();
     }
 }
