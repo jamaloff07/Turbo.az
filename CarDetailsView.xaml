@@ -16,7 +16,7 @@
 
 
 
-        <StackPanel Grid.Row="0" Margin="-35,0,-35,120" Background="#E1E1E1">
+        <StackPanel Grid.Row="0" Margin="-35,0,-35,115" Background="#E1E1E1">
             <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,650,0" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel >
                     <TextBlock x:Name="selectionText" Text="Tap.az" Foreground="SlateGray" FontSize="15" />
@@ -50,7 +50,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Background="Red"  Margin="-35,-120,-35,230">
+        <StackPanel Grid.Row="1" Background="Red"  Margin="-35,-115,-35,225">
             <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" Margin="80,4,0,0" FontWeight="DemiBold"></TextBlock>
             <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="220,-25,500,0"></TextBlock>
             <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="340,-25,390,0"></TextBlock>
@@ -58,6 +58,9 @@
 
 
         </StackPanel>
+        
+        
+        
         <StackPanel Grid.Row="2" Margin="0,-150,0,0">
             <Image Source="{Binding ImageSource}" Width="200" Height="132" Margin="0,-70,0,10"/>
             <TextBlock Text="{Binding Model}" FontSize="20" FontWeight="Bold"/>

@@ -14,6 +14,8 @@ namespace WpfApp3.Views
         {
             InitializeComponent();
             DataContext = car;
+
+
         }
 
 
