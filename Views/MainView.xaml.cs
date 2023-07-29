@@ -22,6 +22,7 @@ namespace WpfApp3.Views
 {
     public partial class MainView : Window
     {
+        private string selectedModel;
 
 
 
@@ -31,7 +32,7 @@ namespace WpfApp3.Views
         {
             InitializeComponent();
 
-            viewModel = new viewModel();
+        viewModel = new viewModel();
             DataContext = viewModel;
         }
 
@@ -48,22 +49,27 @@ namespace WpfApp3.Views
                     carDetailsView.Show();
                 }
 
-                // Tüm Image elementlerini kaldırın
-                List<Image> imagesToRemove = new List<Image>();
-                foreach (UIElement element in imageStackPanel.Children)
+                // Sadece marka ve model seçildiğinde diğer arabaların silinmesini sağlayın
+                if (!string.IsNullOrEmpty(viewModel.SelectedMarka) && !string.IsNullOrEmpty(viewModel.SelectedModel))
                 {
-                    if (element is Image image && image != clickedImage)
+                    List<Image> imagesToRemove = new List<Image>();
+                    foreach (UIElement element in imageStackPanel.Children)
                     {
-                        imagesToRemove.Add(image);
+                        if (element is Image image && image != clickedImage)
+                        {
+                            imagesToRemove.Add(image);
+                        }
                     }
-                }
 
-                foreach (Image image in imagesToRemove)
-                {
-                    imageStackPanel.Children.Remove(image);
+                    foreach (Image image in imagesToRemove)
+                    {
+                        imageStackPanel.Children.Remove(image);
+                    }
                 }
             }
         }
+
+
 
 
 
@@ -248,27 +254,23 @@ namespace WpfApp3.Views
                 }
             }
         }
+
+
+
         private void Model_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox comboBox && comboBox.SelectedItem != null)
             {
                 string selectedModel = comboBox.SelectedItem.ToString();
 
-                // Seçilen modele göre yapılacak işlemleri burada ekleyin
 
-                // ViewModel'de tanımladığınız marka ve model listelerine buradan erişebilirsiniz:
-                if (DataContext is viewModel viewModel)
+                if (viewModel != null)
                 {
-                    // Seçilen modele göre uygun resim yolunu belirleyin
                     string imageSource = GetImageSourceByModel(selectedModel);
 
-                    // Seçilen modele göre resmi Image kontrolüne yükleyin
                     selectedModelImage.Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute));
 
-                    // Önce tüm resimleri kaldırın
                     imageStackPanel.Children.Clear();
-
-                    // Seçilen modele göre resmi Image kontrolüne ekleyin
                     Image selectedImage = new Image
                     {
                         Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute)),
@@ -283,6 +285,9 @@ namespace WpfApp3.Views
                 }
             }
         }
+
+
+
 
 
 

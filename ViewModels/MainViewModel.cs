@@ -36,11 +36,13 @@ namespace WpfApp16.ViewModels
                 }
             }
         }
+        public string SelectedModel { get; set; }
 
         public viewModel()
         {
-            // Burada marka ve model isimlerini ekleyin
-            markaNames = new ObservableCollection<string>
+
+
+        markaNames = new ObservableCollection<string>
             {
                 "Mercedes",
                 "BMW",
@@ -52,9 +54,10 @@ namespace WpfApp16.ViewModels
             };
 
             modelNames = new ObservableCollection<string>();
-        }
 
-        private void UpdateModelNames()
+    }
+
+    private void UpdateModelNames()
         {
             // ModelNames'i, seçilen markaya göre güncelleyin.
             // Bu örnekte, seçilen markaya göre basit bir şekilde model isimlerini ekliyoruz.
