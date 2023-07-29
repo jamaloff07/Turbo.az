@@ -49,7 +49,6 @@ namespace WpfApp3.Views
                     carDetailsView.Show();
                 }
 
-                // Sadece marka ve model seçildiğinde diğer arabaların silinmesini sağlayın
                 if (!string.IsNullOrEmpty(viewModel.SelectedMarka) && !string.IsNullOrEmpty(viewModel.SelectedModel))
                 {
                     List<Image> imagesToRemove = new List<Image>();
@@ -74,6 +73,7 @@ namespace WpfApp3.Views
 
 
 
+
         private CarInfo GetCarInfoByTag(string carTag)
         {
             CarInfo selectedCar = null;
@@ -85,117 +85,153 @@ namespace WpfApp3.Views
                 case "Priora":
                     selectedCar = new CarInfo
                     {
-                        Model = "Lada Priora",
-                        Motor = "Motor: 1.6 L",
-                        Year = "İl: 2010",
-                        Kilometers = "Yürüş: 100,000 km",
-                        Price = "Qiymet: 25,000 AZN",
-                        Color = "Reng: Ag",
+                        Model = " Lada Priora",
+                        Motor = " mator - 1.6L Benzin",
+                        Year = " il - 2005",
+                        Kilometers = " km - 150000",
+                        Price = " qiymet - 15000",
+                        Color = " reng - white",
+                        about = " haqqinda -  Ismayil mellimin masinina soz demek olmaz",
                         ImageSource = "/image/priora.jpg",
-                        about = "Haqqinda: Priora hakkında bilgi...",
                     };
                     break;
 
-                case "Tuareg":
+
+
+
+
+                case "tuareg":
                     selectedCar = new CarInfo
                     {
-                        Model = "Wolksvagen Tuareg",
-                        Motor = "Motor: 2.0 TDI",
-                        Year = "İl: 2012",
-                        Kilometers = "Yürüş: 80,000 km",
-                        Price = "Qiymet: 40,000 AZN",
-                        Color = "Reng: Qara",
+                        Model = " Wolksvagen Tuareg",
+                        Motor = " mator - 3.2L benzin",
+                        Year = " il - 2008",
+                        Kilometers = " km - 180000",
+                        Price = " qiymet - 25000",
+                        Color = " reng - black",
+                        about = " haqqinda - hec bir problemi yoxdur normal\n sur omrunun axrina qeder usta uzu gorme",
                         ImageSource = "/Image/tuareg.jpg",
-                        about = "Haqqinda: Tuareg hakkında bilgi...",
                     };
                     break;
 
-                case "4Goz":
+
+
+
+
+                case "4goz":
                     selectedCar = new CarInfo
                     {
-                        Model = "Mercedes E290",
-                        Motor = "Motor: 2.9 L",
-                        Year = "İl:2015",
-                        Kilometers = "Yürüş: 120,000 km",
-                        Price = "Qiymet: 30,000 AZN",
-                        Color = "Reng: White",
+                        Model = " Mercedes e320",
+                        Motor = " motor - 3.2L benzin",
+                        Year = " il - 1999",
+                        Kilometers = " km - 123000",
+                        Price = " qiymet - 10000",
+                        Color = " reng - Grey",
+                        about = " haqqinda - baki qebele ureyin isteyen kimi sur\n hec bir problemi yoxdu",
                         ImageSource = "/Image/4goz.jpg",
-                        about = "Haqqinda: 4 Göz hakkında bilgi...",
                     };
                     break;
+
 
 
                 case "e60":
                     selectedCar = new CarInfo
                     {
-                        Model = "BMW E60",
-                        Motor = "Motor: 2.0 L",
-                        Year = "İl: 2008",
-                        Kilometers = "Yürüş: 150,000 km",
-                        Price = "Qiymet: 20,000 AZN",
-                        Color = "Reng: Qara",
+                        Model = " BMW e60",
+                        Motor = " 5.5L Benzin",
+                        Year = " il - 1999",
+                        Kilometers = " km - 12000",
+                        Price = " qiymet - 25000",
+                        Color = " reng - purple",
+                        about = " haqqinda - sport purjun stage 1 yukseldilib \nhec bir problemi yoxdur",
                         ImageSource = "/Image/60kuza.jpg",
-                        about = "Haqqinda: e60 hakkında bilgi...",
                     };
                     break;
+
+
 
                 case "camry":
                     selectedCar = new CarInfo
                     {
-                        Model = "Toyota Camry",
-                        Motor = "Motor: 2.5 L",
-                        Year = "İl:2014",
-                        Kilometers = "Yürüş: 90,000 km",
-                        Price = "Qiymet: 35,000 AZN",
-                        Color = "Reng: Silver",
+                        Model = " Toyota camry",
+                        Motor = " motor - 2.5L Benzin",
+                        Year = " il - 2022",
+                        Kilometers = " km - 0",
+                        Price = " qiymet - 35000",
+                        Color = " reng - white",
+                        about = " haqqinda - cox rahat tam dayday masini bez problem",
                         ImageSource = "/Image/camry.jpg",
-                        about = "HaqqindaCamry hakkında bilgi...",
                     };
                     break;
+
+
+
+
 
                 case "2107":
                     selectedCar = new CarInfo
                     {
-                        Model = "Lada VAZ 2107",
-                        Motor = "Motor: 1.6 L",
-                        Year = "İl: 2005",
-                        Kilometers = "Yürüş: 180,000 km",
-                        Price = "Qiymet: 12,000 AZN",
-                        Color = "Reng: Green",
+                        Model = " Vaz 2107",
+                        Motor = " motor - 1.3L Benzin",
+                        Year = " il - 1987",
+                        Kilometers = " km - 200000",
+                        Price = " qiymet - 5000",
+                        Color = " carbon white",
+                        about = " haqqinda - problemzisdir axir qiymeti budu",
                         ImageSource = "/Image/07.jpg",
-                        about = "HAqqinda: 2107 hakkında bilgi...",
                     };
                     break;
+
+
+
+
 
                 case "brabus":
                     selectedCar = new CarInfo
                     {
-                        Model = "Mercedes G-63",
-                        Motor = "Motor: 4.0 L",
-                        Year = "İl: 2018",
-                        Kilometers = "Yürüş: 20,000 km",
-                        Price = "Qiymet: 200,000 AZN",
-                        Color = "Reng: Red",
+                        Model = " Mercedes brabus",
+                        Motor = " motor - 6.5L Benzin",
+                        Year = " il - 2021",
+                        Kilometers = " km - 0",
+                        Price = " qiymet - 350000",
+                        Color = " reng - grey",
                         ImageSource = "/image/qalikk.jpg",
-                        about = "Haqqinda: Brabus hakkında bilgi...",
                     };
                     break;
+
+
+
+
 
                 case "sessot":
                     selectedCar = new CarInfo
                     {
-                        Model = "Mercedes S300",
-                        Motor = "Motor: 3.0 L",
-                        Year = "İl: 2016",
-                        Kilometers = "Yürüş: 40,000 km",
-                        Price = "Qiymet: 150,000 AZN",
-                        Color = "Reng: Blue",
-                        ImageSource = "/image/download.jpg",
-                        about = "Haqqinda: Sessot hakkında bilgi...",
+                        Model = " Mercedes sessot",
+                        Motor = " motor - 5.5L Benzin",
+                        Year = " il - 1988",
+                        Kilometers = " km - 200000",
+                        Price = " qiymet - 15000",
+                        Color = " reng - black",
+                        about = " haqqinda - bilen bilir bu nece masindir alanada satanada allah\n xeyir versin",
+                        ImageSource = "/image/sessot.jpg",
                     };
                     break;
 
                 case "challenger":
+                    selectedCar = new CarInfo
+                    {
+                        Model = " Dodge challenger",
+                        Motor = " motor - 6.5L Benzin",
+                        Year = " il - 2020",
+                        Kilometers = " km - 0",
+                        Price = " qiymet - 60000",
+                        Color = " reng - dark grey",
+                        ImageSource = "/image/dodge.jpg",
+                    };
+                    break;
+
+
+                case "e36":
                     selectedCar = new CarInfo
                     {
                         Model = "Dodge Challenger",
@@ -204,12 +240,25 @@ namespace WpfApp3.Views
                         Kilometers = "Yürüş: 15,000 km",
                         Price = "Qiymet: 180,000 AZN",
                         Color = "Reng: White",
-                        ImageSource = "/image/dodge.jpg",
+                        ImageSource = "/image/e36.jpg",
                         about = "Haqqinda: Challenger hakkında bilgi...",
                     };
                     break;
 
 
+                case "prius":
+                    selectedCar = new CarInfo
+                    {
+                        Model = "Dodge Challenger",
+                        Motor = "Motor: 3.6 L",
+                        Year = "İl: 2019",
+                        Kilometers = "Yürüş: 15,000 km",
+                        Price = "Qiymet: 180,000 AZN",
+                        Color = "Reng: White",
+                        ImageSource = "/image/prius.jpg",
+                        about = "Haqqinda: Challenger hakkında bilgi...",
+                    };
+                    break;
                 default:
                     break;
             }
@@ -227,15 +276,19 @@ namespace WpfApp3.Views
                 switch (viewModel.SelectedMarka)
                 {
                     case "Mercedes":
-                        viewModel.modelNames.Add("4 goz");
+                        viewModel.modelNames.Add("4goz");
                         viewModel.modelNames.Add("sessot");
                         viewModel.modelNames.Add("brabus");
                         break;
                     case "BMW":
                         viewModel.modelNames.Add("e60");
+                        viewModel.modelNames.Add("e36");
+
                         break;
                     case "Toyota":
                         viewModel.modelNames.Add("camry");
+                        viewModel.modelNames.Add("prius");
+
                         break;
                     case "Wolksvagen":
                         viewModel.modelNames.Add("tuareg");
@@ -247,7 +300,7 @@ namespace WpfApp3.Views
                         viewModel.modelNames.Add("2107");
                         break;
                     case "lada":
-                        viewModel.modelNames.Add("priora");
+                        viewModel.modelNames.Add("Priora");
                         break;
                     default:
                         break;
@@ -296,13 +349,13 @@ namespace WpfApp3.Views
 
         private string GetImageSourceByModel(string model)
         {
-            // Model adına göre uygun resim yolunu döndürün
+
             switch (model)
             {
-                case "4 goz":
+                case "4goz":
                     return "/Image/4goz.jpg";
                 case "sessot":
-                    return "/Image/download.jpg";
+                    return "/Image/sessot.jpg";
                 case "brabus":
                     return "/Image/qalikk.jpg";
                 case "e60":
@@ -315,10 +368,17 @@ namespace WpfApp3.Views
                     return "/Image/dodge.jpg";
                 case "tuareg":
                     return "/Image/tuareg.jpg";
-                case "priora":
+                case "Priora":
                     return "/Image/priora.jpg";
+       
+                case "prius":
+                    return "/Image/prius.jpg";
+
+                case "e36":
+                    return "/Image/e36.jpg";
                 default:
-                    return ""; // Varsayılan olarak boş resim yolu döndürün
+
+                    return "";
             }
         }
         public class CarInfo

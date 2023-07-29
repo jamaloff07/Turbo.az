@@ -31,7 +31,6 @@ namespace WpfApp16.ViewModels
                 {
                     selectedMarka = value;
                     OnPropertyChanged(nameof(SelectedMarka));
-                    // ModelNames'i seçilen markaya göre güncelleyin.
                     UpdateModelNames();
                 }
             }
@@ -59,20 +58,46 @@ namespace WpfApp16.ViewModels
 
     private void UpdateModelNames()
         {
-            // ModelNames'i, seçilen markaya göre güncelleyin.
-            // Bu örnekte, seçilen markaya göre basit bir şekilde model isimlerini ekliyoruz.
-            // Daha gerçek bir senaryoda, verilerinizi bir veri kaynağından almanız gerekebilir.
+            
             modelNames.Clear();
             if (SelectedMarka == "Mercedes")
             {
-                modelNames.Add("4 goz");
+                modelNames.Add("4goz");
                 modelNames.Add("sessot");
             }
             else if (SelectedMarka == "BMW")
             {
                 modelNames.Add("e60");
+                modelNames.Add("e36");
+
             }
-            // ... Diğer markalara göre ekleme yapabilirsiniz.
+
+            else if (SelectedMarka == "Toyota")
+            {
+                modelNames.Add("camry");
+                modelNames.Add("prius");
+
+            }
+
+            else if (SelectedMarka == "Wolksvagen")
+            {
+                modelNames.Add("tuareg");
+            }
+
+            else if (SelectedMarka == "dodge")
+            {
+                modelNames.Add("challenger");
+            }
+
+            else if (SelectedMarka == "vaz")
+            {
+                modelNames.Add("2107");
+            }
+
+            else if (SelectedMarka == "lada")
+            {
+                modelNames.Add("priora");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

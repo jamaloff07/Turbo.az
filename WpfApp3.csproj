@@ -13,10 +13,11 @@
     <None Remove="image\60kuza.jpg" />
     <None Remove="image\camry.jpg" />
     <None Remove="image\dodge.jpg" />
-    <None Remove="image\download.jpg" />
+    <None Remove="image\e36.jpg" />
     <None Remove="image\priora.jpg" />
     <None Remove="image\prius.jpg" />
     <None Remove="image\qalikk.jpg" />
+    <None Remove="image\sessot.jpg" />
     <None Remove="image\tuareg.jpg" />
     <None Remove="Red_image\heart.png" />
     <None Remove="Red_image\RedHeart.png" />
@@ -25,14 +26,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="image\sessot.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\prius.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="image\07.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\priora.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\e36.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="image\4goz.jpg" />
     <Resource Include="image\60kuza.jpg" />
     <Resource Include="image\camry.jpg" />
     <Resource Include="image\dodge.jpg" />
-    <Resource Include="image\download.jpg" />
-    <Resource Include="image\priora.jpg" />
-    <Resource Include="image\prius.jpg" />
     <Resource Include="image\qalikk.jpg" />
     <Resource Include="image\tuareg.jpg" />
     <Resource Include="Red_image\heart.png" />
