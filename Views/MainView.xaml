@@ -84,11 +84,10 @@
             <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Margin="50,5,0,0"></TextBlock>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Margin="40,-150,40,0" Background="#F5F5F5" Grid.RowSpan="3">
-            <WrapPanel Grid.ColumnSpan="2" Margin="40,0,40,0" Width="650">
+        <StackPanel Grid.Row="4" Margin="40,0,40,0" Background="#F5F5F5" Grid.RowSpan="3">
+            <WrapPanel x:Name="imagePanel" Grid.Row="4" Margin="40,-150,40,0" Background="#F5F5F5" Grid.RowSpan="3">
                 <ScrollViewer Background="Transparent" Height="224" Width="640">
-
-                    <Canvas x:Name="imageStackPanel"  Margin="20" Height="906" >
+                    <Canvas x:Name="imageStackPanel" Margin="20" Height="906">
                         <Image x:Name="selectedModelImage"  Width="200" Height="200" Margin="10" Stretch="UniformToFill" />
                         <Image Source="/image/priora.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
                         <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="Tuareg"/>
@@ -99,22 +98,10 @@
                         <Image Source="/image/qalikk.jpg" Width="273" Height="117" Canvas.Left="-32" Canvas.Top="278" MouseLeftButtonUp="CarImage_Click" Tag="brabus"/>
                         <Image Source="/image/download.jpg" Width="199" Height="117" Canvas.Left="203" Canvas.Top="281" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="sessot"/>
                         <Image Source="/image/dodge.jpg" Width="160" Height="111" Canvas.Left="424" Canvas.Top="285" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger"/>
-
-
-
                     </Canvas>
-
-
-
-
-
-
-
-
-
-
                 </ScrollViewer>
             </WrapPanel>
+
 
 
         </StackPanel>

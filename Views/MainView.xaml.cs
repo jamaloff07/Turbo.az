@@ -36,16 +36,7 @@ namespace WpfApp3.Views
         }
 
 
-
-
-
-
-
-
-
-
-
-        private void CarImage_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void CarImage_Click(object sender, MouseButtonEventArgs e)
         {
             Image clickedImage = sender as Image;
             if (clickedImage != null && clickedImage.Tag is string carTag)
@@ -56,8 +47,26 @@ namespace WpfApp3.Views
                     CarDetailsView carDetailsView = new CarDetailsView(selectedCar);
                     carDetailsView.Show();
                 }
+
+                // Tüm Image elementlerini kaldırın
+                List<Image> imagesToRemove = new List<Image>();
+                foreach (UIElement element in imageStackPanel.Children)
+                {
+                    if (element is Image image && image != clickedImage)
+                    {
+                        imagesToRemove.Add(image);
+                    }
+                }
+
+                foreach (Image image in imagesToRemove)
+                {
+                    imageStackPanel.Children.Remove(image);
+                }
             }
         }
+
+
+
 
         private CarInfo GetCarInfoByTag(string carTag)
         {
@@ -255,9 +264,30 @@ namespace WpfApp3.Views
 
                     // Seçilen modele göre resmi Image kontrolüne yükleyin
                     selectedModelImage.Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute));
+
+                    // Önce tüm resimleri kaldırın
+                    imageStackPanel.Children.Clear();
+
+                    // Seçilen modele göre resmi Image kontrolüne ekleyin
+                    Image selectedImage = new Image
+                    {
+                        Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute)),
+                        Width = 154,
+                        Height = 108,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+                    selectedImage.MouseLeftButtonDown += CarImage_Click;
+                    selectedImage.Tag = selectedModel;
+                    imageStackPanel.Children.Add(selectedImage);
                 }
             }
         }
+
+
+
+
+
 
         private string GetImageSourceByModel(string model)
         {
