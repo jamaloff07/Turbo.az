@@ -14,19 +14,35 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp16.ViewModels;
 using WpfApp3.Command;
+using WpfApp3.Model;
+using WpfApp3.ViewModels;
+
 
 namespace WpfApp3.Views
 {
     public partial class MainView : Window
     {
-        private MainViewModel viewModel;
+
+
+
+        private viewModel viewModel;
 
         public MainView()
         {
             InitializeComponent();
-            viewModel = new MainViewModel();
+
+            viewModel = new viewModel();
             DataContext = viewModel;
         }
+
+
+
+
+
+
+
+
+
 
 
         private void CarImage_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -187,8 +203,89 @@ namespace WpfApp3.Views
         }
 
 
+        private void Marka_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DataContext is viewModel viewModel)
+            {
+                viewModel.modelNames.Clear();
 
+                switch (viewModel.SelectedMarka)
+                {
+                    case "Mercedes":
+                        viewModel.modelNames.Add("4 goz");
+                        viewModel.modelNames.Add("sessot");
+                        viewModel.modelNames.Add("brabus");
+                        break;
+                    case "BMW":
+                        viewModel.modelNames.Add("e60");
+                        break;
+                    case "Toyota":
+                        viewModel.modelNames.Add("camry");
+                        break;
+                    case "Wolksvagen":
+                        viewModel.modelNames.Add("tuareg");
+                        break;
+                    case "dodge":
+                        viewModel.modelNames.Add("challenger");
+                        break;
+                    case "vaz":
+                        viewModel.modelNames.Add("2107");
+                        break;
+                    case "lada":
+                        viewModel.modelNames.Add("priora");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        private void Model_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.SelectedItem != null)
+            {
+                string selectedModel = comboBox.SelectedItem.ToString();
 
+                // Seçilen modele göre yapılacak işlemleri burada ekleyin
+
+                // ViewModel'de tanımladığınız marka ve model listelerine buradan erişebilirsiniz:
+                if (DataContext is viewModel viewModel)
+                {
+                    // Seçilen modele göre uygun resim yolunu belirleyin
+                    string imageSource = GetImageSourceByModel(selectedModel);
+
+                    // Seçilen modele göre resmi Image kontrolüne yükleyin
+                    selectedModelImage.Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute));
+                }
+            }
+        }
+
+        private string GetImageSourceByModel(string model)
+        {
+            // Model adına göre uygun resim yolunu döndürün
+            switch (model)
+            {
+                case "4 goz":
+                    return "/Image/4goz.jpg";
+                case "sessot":
+                    return "/Image/download.jpg";
+                case "brabus":
+                    return "/Image/qalikk.jpg";
+                case "e60":
+                    return "/Image/60kuza.jpg";
+                case "camry":
+                    return "/Image/camry.jpg";
+                case "2107":
+                    return "/Image/07.jpg";
+                case "challenger":
+                    return "/Image/dodge.jpg";
+                case "tuareg":
+                    return "/Image/tuareg.jpg";
+                case "priora":
+                    return "/Image/priora.jpg";
+                default:
+                    return ""; // Varsayılan olarak boş resim yolu döndürün
+            }
+        }
         public class CarInfo
         {
             public string? Model { get; set; }
@@ -200,6 +297,7 @@ namespace WpfApp3.Views
             public string? ImageSource { get; internal set; }
             public string? about { get; set; }
         }
+
 
         private void myImageButton_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -277,71 +375,5 @@ namespace WpfApp3.Views
             userImage.Source = new BitmapImage(heartResourceUri);
             selectionTexttu.Foreground = new SolidColorBrush(Colors.SlateGray);
         }
-    }
-    private void MarkaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (DataContext is MainViewModel viewModel)
-        {
-            viewModel.modelNames.Clear();
-
-            switch (viewModel.SelectedMarka)
-            {
-                case "Mercedes":
-                    viewModel.modelNames.Add("4 goz");
-                    viewModel.modelNames.Add("sessot");
-                    viewModel.modelNames.Add("brabus");
-                    break;
-                case "BMW":
-                    viewModel..Add("e60");
-                    break;
-                case "Toyota":
-                    viewModel.Modeller.Add("camry");
-                    break;
-                case "Wolksvagen":
-                    viewModel.Modeller.Add("tuareg");
-                    break;
-                case "Dodge":
-                    viewModel.Modeller.Add("challenger");
-                    break;
-                case "VAZ":
-                    viewModel.Modeller.Add("2107");
-                    break;
-                case "Lada":
-                    viewModel.Modeller.Add("priora");
-                    break;
-                // Diğer markaların modellerini de buraya ekleyin...
-                default:
-                    break;
-            }
-        }
-
-
-    }
-
-
-    private void ModelComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (sender is ComboBox comboBox && DataContext is MainViewModel viewModel)
-        {
-            // Seçilen model adını alıyoruz
-            string selectedModel = comboBox.SelectedItem as string;
-
-            // Burada seçilen model adına göre yapmak istediğiniz işlemleri yapabilirsiniz
-            // Örneğin, seçilen model adına göre araba bilgilerini alıp ekranda gösterebilirsiniz
-            // Bu işlem için GetCarInfoByModel(selectedModel) gibi bir metodunuz olabilir.
-            // Ancak, bu metodunuzun CarInfo tipinde bir nesne döndürmesi gerektiğini unutmayın.
-            // Ardından carDetailsText.Text = selectedCar.ToString(); gibi bir kodla bilgileri gösterebilirsiniz.
-        }
-    }
-}
-
-// ViewModel sınıfı için kullanılabilecek örnek bir sınıf
-public class MainViewModel
-{
-    public ObservableCollection<string> modelNames { get; set; }
-
-    public MainViewModel()
-    {
-        modelNames = new ObservableCollection<string>();
     }
 }

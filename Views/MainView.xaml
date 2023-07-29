@@ -9,6 +9,7 @@
         VerticalAlignment="Center"
     mc:Ignorable="d"
         Title="MainView" Height="450" Width="870">
+
     <Grid  Height="450" Width="870">
 
 
@@ -70,14 +71,14 @@
 
         </StackPanel>
         <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="40,-100,40,100">
-            <ComboBox x:Name="markaComboBox" Grid.Row="1" Margin="20,0,0,0" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="MarkaComboBox_SelectionChanged">
-                <!-- ComboBox içeriği -->
-            </ComboBox>
+            <ComboBox x:Name="marka" HorizontalAlignment="Left" Margin="50,20,0,0" Text=" " Width="136" Height="35" 
+          ItemsSource="{Binding markaNames}" SelectedItem="{Binding SelectedMarka}" 
+          SelectionChanged="Marka_SelectionChanged" />
+            
+            <ComboBox x:Name="model" HorizontalAlignment="Left" Margin="200,-35,0,0" Text=" " VerticalAlignment="Top" Width="136" Height="35"
+          ItemsSource="{Binding modelNames}" SelectionChanged="Model_SelectionChanged" />
 
-            <ComboBox x:Name="modelComboBox" Grid.Row="1" Margin="150,0,0,0" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="ModelComboBox_SelectionChanged" IsEnabled="False">
-                <!-- ComboBox içeriği -->
-            </ComboBox>
-
+            <Button Content="Button" Width="136" Height="35" Margin="250,-35,0,0"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Background="#ECECEC" Margin="40,-100,40,150">
             <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Margin="50,5,0,0"></TextBlock>
@@ -88,6 +89,7 @@
                 <ScrollViewer Background="Transparent" Height="224" Width="640">
 
                     <Canvas x:Name="imageStackPanel"  Margin="20" Height="906" >
+                        <Image x:Name="selectedModelImage"  Width="200" Height="200" Margin="10" Stretch="UniformToFill" />
                         <Image Source="/image/priora.jpg" Width="154" Height="108" Canvas.Left="30" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
                         <Image Source="/Image/tuareg.jpg" Width="161" Height="116" Canvas.Left="228" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="Tuareg"/>
                         <Image Source="/Image/4goz.jpg" Width="162" Height="115" Canvas.Left="426" Canvas.Top="145" MouseLeftButtonUp="CarImage_Click" Tag="4Goz"/>
@@ -114,8 +116,7 @@
                 </ScrollViewer>
             </WrapPanel>
 
-         
-            <TextBlock x:Name="carDetailsText" Margin="20, 250, 20, 20"/>
+
         </StackPanel>
 
 

@@ -1,23 +1,25 @@
-﻿// MainViewModel.cs
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfApp3.Command;
+using WpfApp3.Model;
+using WpfApp3.Views;
 
-namespace WpfApp3.ViewModels
+
+
+
+
+namespace WpfApp16.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class viewModel : INotifyPropertyChanged
     {
-        // Burada MainViewModel sınıfının içeriğini tanımlayın
-        // Örnek olarak, aşağıdaki özellikleri ekleyin:
-
-
-
-        public ICommand? NewWindow { get; set; }
-
-
         public ObservableCollection<string> markaNames { get; set; }
         public ObservableCollection<string> modelNames { get; set; }
-        public ObservableCollection<string> yearNames { get; set; }
 
         private string selectedMarka;
         public string SelectedMarka
@@ -29,33 +31,50 @@ namespace WpfApp3.ViewModels
                 {
                     selectedMarka = value;
                     OnPropertyChanged(nameof(SelectedMarka));
-                    // Burada model ComboBox'ını doldurma işlemlerini gerçekleştirebilirsiniz.
+                    // ModelNames'i seçilen markaya göre güncelleyin.
+                    UpdateModelNames();
                 }
             }
         }
 
-        // İhtiyaç duyarsanız diğer özellikleri de ekleyebilirsiniz.
-
-        public MainViewModel()
+        public viewModel()
         {
-            Markalar = new ObservableCollection<string>
+            // Burada marka ve model isimlerini ekleyin
+            markaNames = new ObservableCollection<string>
             {
                 "Mercedes",
                 "BMW",
                 "Toyota",
                 "Wolksvagen",
-                "Dodge",
-                "VAZ",
-                "Lada"
-                // Diğer markaları da buraya ekleyin...
+                "dodge",
+                "vaz",
+                "lada"
             };
 
-            Modeller = new ObservableCollection<string>();
+            modelNames = new ObservableCollection<string>();
+        }
+
+        private void UpdateModelNames()
+        {
+            // ModelNames'i, seçilen markaya göre güncelleyin.
+            // Bu örnekte, seçilen markaya göre basit bir şekilde model isimlerini ekliyoruz.
+            // Daha gerçek bir senaryoda, verilerinizi bir veri kaynağından almanız gerekebilir.
+            modelNames.Clear();
+            if (SelectedMarka == "Mercedes")
+            {
+                modelNames.Add("4 goz");
+                modelNames.Add("sessot");
+            }
+            else if (SelectedMarka == "BMW")
+            {
+                modelNames.Add("e60");
+            }
+            // ... Diğer markalara göre ekleme yapabilirsiniz.
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
