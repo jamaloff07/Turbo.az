@@ -49,7 +49,8 @@ namespace WpfApp16.ViewModels
                 "Wolksvagen",
                 "dodge",
                 "vaz",
-                "lada"
+                "lada",
+                "Abarth"
             };
 
             modelNames = new ObservableCollection<string>();
@@ -62,8 +63,10 @@ namespace WpfApp16.ViewModels
             modelNames.Clear();
             if (SelectedMarka == "Mercedes")
             {
-                modelNames.Add("4goz");
-                modelNames.Add("sessot");
+                modelNames.Add("E320");
+                modelNames.Add("S300");
+                modelNames.Add("G-63");
+
             }
             else if (SelectedMarka == "BMW")
             {
@@ -97,6 +100,11 @@ namespace WpfApp16.ViewModels
             else if (SelectedMarka == "lada")
             {
                 modelNames.Add("priora");
+            }
+
+            else if (SelectedMarka == "Abarth")
+            {
+                modelNames.Add("595");
             }
         }
 

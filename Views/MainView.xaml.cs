@@ -86,12 +86,12 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " Lada Priora",
-                        Motor = " mator - 1.6L Benzin",
-                        Year = " il - 2005",
-                        Kilometers = " km - 150000",
-                        Price = " qiymet - 15000",
-                        Color = " reng - white",
-                        about = " haqqinda -  Ismayil mellimin masinina soz demek olmaz",
+                        Motor = " Motor: 1.6L Benzin",
+                        Year = " İl: 2005",
+                        Kilometers = " Yürüş: 150000",
+                        Price = " Qiymet: 15000",
+                        Color = " Reng: Qara",
+                        about = " Haqqinda:  Ismayil mellimin masinina soz demek olmaz",
                         ImageSource = "/image/priora.jpg",
                     };
                     break;
@@ -104,12 +104,12 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " Wolksvagen Tuareg",
-                        Motor = " mator - 3.2L benzin",
-                        Year = " il - 2008",
-                        Kilometers = " km - 180000",
-                        Price = " qiymet - 25000",
-                        Color = " reng - black",
-                        about = " haqqinda - hec bir problemi yoxdur normal\n sur omrunun axrina qeder usta uzu gorme",
+                        Motor = " Motor: 3.2L benzin",
+                        Year = " İl: 2008",
+                        Kilometers = " Yürüş: 180000",
+                        Price = " Qiymet: 25000",
+                        Color = " Reng: Qara",
+                        about = " Haqqinda: hec bir problemi yoxdur normal\n sur omrunun axrina qeder usta uzu gorme",
                         ImageSource = "/Image/tuareg.jpg",
                     };
                     break;
@@ -118,16 +118,16 @@ namespace WpfApp3.Views
 
 
 
-                case "4goz":
+                case "E320":
                     selectedCar = new CarInfo
                     {
                         Model = " Mercedes e320",
-                        Motor = " motor - 3.2L benzin",
-                        Year = " il - 1999",
-                        Kilometers = " km - 123000",
-                        Price = " qiymet - 10000",
-                        Color = " reng - Grey",
-                        about = " haqqinda - baki qebele ureyin isteyen kimi sur\n hec bir problemi yoxdu",
+                        Motor = " Motor: 3.2L benzin",
+                        Year = " İl: 1999",
+                        Kilometers = " Yürüş: 123000",
+                        Price = " Qiymet: 10000",
+                        Color = " Reng: Boz",
+                        about = " Haqqinda: baki qebele ureyin isteyen kimi sur\n hec bir problemi yoxdu",
                         ImageSource = "/Image/4goz.jpg",
                     };
                     break;
@@ -138,12 +138,12 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " BMW e60",
-                        Motor = " 5.5L Benzin",
-                        Year = " il - 1999",
-                        Kilometers = " km - 12000",
-                        Price = " qiymet - 25000",
-                        Color = " reng - purple",
-                        about = " haqqinda - sport purjun stage 1 yukseldilib \nhec bir problemi yoxdur",
+                        Motor = " Motor: 5.5L Benzin",
+                        Year = " İl: 1999",
+                        Kilometers = " Yürüş: 12000",
+                        Price = " Qiymet: 25000",
+                        Color = " Reng: Benovseyi",
+                        about = " Haqqinda: sport purjun stage 1 yukseldilib \nhec bir problemi yoxdur",
                         ImageSource = "/Image/60kuza.jpg",
                     };
                     break;
@@ -154,12 +154,12 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " Toyota camry",
-                        Motor = " motor - 2.5L Benzin",
-                        Year = " il - 2022",
-                        Kilometers = " km - 0",
-                        Price = " qiymet - 35000",
-                        Color = " reng - white",
-                        about = " haqqinda - cox rahat tam dayday masini bez problem",
+                        Motor = " Motor: 2.5L Benzin",
+                        Year = " İl: 2022",
+                        Kilometers = " Yürüş: 0",
+                        Price = " Qiymet: 35000",
+                        Color = " Reng: Ag",
+                        about = " Haqqinda: cox rahat tam dayday masini bez problem",
                         ImageSource = "/Image/camry.jpg",
                     };
                     break;
@@ -172,12 +172,12 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " Vaz 2107",
-                        Motor = " motor - 1.3L Benzin",
-                        Year = " il - 1987",
-                        Kilometers = " km - 200000",
-                        Price = " qiymet - 5000",
-                        Color = " carbon white",
-                        about = " haqqinda - problemzisdir axir qiymeti budu",
+                        Motor = " Motor: 1.3L Benzin",
+                        Year = " İl: 1987",
+                        Kilometers = " Yürüş: 200000",
+                        Price = " Qiymet:  5000",
+                        Color = "Reng: Ag",
+                        about = "Haqqinda: problemzisdir axir qiymeti budu",
                         ImageSource = "/Image/07.jpg",
                     };
                     break;
@@ -186,15 +186,15 @@ namespace WpfApp3.Views
 
 
 
-                case "brabus":
+                case "G-63":
                     selectedCar = new CarInfo
                     {
-                        Model = " Mercedes brabus",
-                        Motor = " motor - 6.5L Benzin",
-                        Year = " il - 2021",
-                        Kilometers = " km - 0",
-                        Price = " qiymet - 350000",
-                        Color = " reng - grey",
+                        Model = " Mercedes G-63",
+                        Motor = " Motor: 6.5L Benzin",
+                        Year = " İl: 2021",
+                        Kilometers = "Yürüyüş: 0",
+                        Price = " Qiymet: 350000",
+                        Color = " Reng: Boz",
                         ImageSource = "/image/qalikk.jpg",
                     };
                     break;
@@ -203,15 +203,15 @@ namespace WpfApp3.Views
 
 
 
-                case "sessot":
+                case "S300":
                     selectedCar = new CarInfo
                     {
-                        Model = " Mercedes sessot",
-                        Motor = " motor - 5.5L Benzin",
-                        Year = " il - 1988",
-                        Kilometers = " km - 200000",
-                        Price = " qiymet - 15000",
-                        Color = " reng - black",
+                        Model = " Mercedes S300",
+                        Motor = " Motor: 5.5L Benzin",
+                        Year = " İl: 1988",
+                        Kilometers = " Yürüş: 200000",
+                        Price = " Qiymet: 15000",
+                        Color = " Reng: Qara",
                         about = " haqqinda - bilen bilir bu nece masindir alanada satanada allah\n xeyir versin",
                         ImageSource = "/image/sessot.jpg",
                     };
@@ -221,11 +221,11 @@ namespace WpfApp3.Views
                     selectedCar = new CarInfo
                     {
                         Model = " Dodge challenger",
-                        Motor = " motor - 6.5L Benzin",
-                        Year = " il - 2020",
-                        Kilometers = " km - 0",
-                        Price = " qiymet - 60000",
-                        Color = " reng - dark grey",
+                        Motor = " Motor: 6.5L Benzin",
+                        Year = " İl: 2020",
+                        Kilometers = " Yürüş: 0",
+                        Price = " Qiymet: 60000",
+                        Color = " Reng: Yaş asfalt",
                         ImageSource = "/image/dodge.jpg",
                     };
                     break;
@@ -234,14 +234,14 @@ namespace WpfApp3.Views
                 case "e36":
                     selectedCar = new CarInfo
                     {
-                        Model = "Dodge Challenger",
-                        Motor = "Motor: 3.6 L",
-                        Year = "İl: 2019",
-                        Kilometers = "Yürüş: 15,000 km",
-                        Price = "Qiymet: 180,000 AZN",
+                        Model = "BMW 320",
+                        Motor = "Motor: 2.0 L",
+                        Year = "İl: 1996",
+                        Kilometers = "Yürüş: 400000 km",
+                        Price = "Qiymet: 9900 AZN",
                         Color = "Reng: White",
                         ImageSource = "/image/e36.jpg",
-                        about = "Haqqinda: Challenger hakkında bilgi...",
+                        about = "Haqqinda: Ideal veziyyetdedir Real alicilar narahat etsin",
                     };
                     break;
 
@@ -249,14 +249,28 @@ namespace WpfApp3.Views
                 case "prius":
                     selectedCar = new CarInfo
                     {
-                        Model = "Dodge Challenger",
-                        Motor = "Motor: 3.6 L",
-                        Year = "İl: 2019",
-                        Kilometers = "Yürüş: 15,000 km",
-                        Price = "Qiymet: 180,000 AZN",
+                        Model = "Toyota Prius",
+                        Motor = "Motor: 1.5 L",
+                        Year = "İl: 2008",
+                        Kilometers = "Yürüş: 211,000 km",
+                        Price = "Qiymet: 15,000 AZN",
                         Color = "Reng: White",
                         ImageSource = "/image/prius.jpg",
-                        about = "Haqqinda: Challenger hakkında bilgi...",
+                        about = "Haqqinda: Butun masinlar size yol verecek",
+                    };
+                    break;
+
+                case "595":
+                    selectedCar = new CarInfo
+                    {
+                        Model = "Abarth 595",
+                        Motor = "Motor: 1.4 L",
+                        Year = "İl: 2017",
+                        Kilometers = "Yürüş: 67,000 km",
+                        Price = "Qiymet: 26,000 AZN",
+                        Color = "Reng: Boz",
+                        ImageSource = "/image/abart.jpg",
+                        about = "Haqqinda: Butun masinlar size yol verecek",
                     };
                     break;
                 default:
@@ -276,9 +290,9 @@ namespace WpfApp3.Views
                 switch (viewModel.SelectedMarka)
                 {
                     case "Mercedes":
-                        viewModel.modelNames.Add("4goz");
-                        viewModel.modelNames.Add("sessot");
-                        viewModel.modelNames.Add("brabus");
+                        viewModel.modelNames.Add("E320");
+                        viewModel.modelNames.Add("S300");
+                        viewModel.modelNames.Add("G-63");
                         break;
                     case "BMW":
                         viewModel.modelNames.Add("e60");
@@ -301,6 +315,9 @@ namespace WpfApp3.Views
                         break;
                     case "lada":
                         viewModel.modelNames.Add("Priora");
+                        break;
+                    case "Abarth":
+                        viewModel.modelNames.Add("595");
                         break;
                     default:
                         break;
@@ -352,11 +369,11 @@ namespace WpfApp3.Views
 
             switch (model)
             {
-                case "4goz":
+                case "E320":
                     return "/Image/4goz.jpg";
-                case "sessot":
+                case "S300":
                     return "/Image/sessot.jpg";
-                case "brabus":
+                case "G-63":
                     return "/Image/qalikk.jpg";
                 case "e60":
                     return "/Image/60kuza.jpg";
@@ -376,6 +393,9 @@ namespace WpfApp3.Views
 
                 case "e36":
                     return "/Image/e36.jpg";
+
+                case "595":
+                    return "/Image/abart.jpg";
                 default:
 
                     return "";
