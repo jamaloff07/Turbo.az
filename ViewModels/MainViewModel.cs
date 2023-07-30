@@ -19,7 +19,7 @@ namespace WpfApp16.ViewModels
     public class viewModel : INotifyPropertyChanged
     {
         public ObservableCollection<string> markaNames { get; set; }
-        public ObservableCollection<string> modelNames { get; set; }
+        public ObservableCollection<string> modelNames { get; set; } = new ObservableCollection<string>();
 
         private string selectedMarka;
         public string SelectedMarka

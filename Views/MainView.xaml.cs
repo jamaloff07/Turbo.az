@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,9 +25,12 @@ namespace WpfApp3.Views
     {
         private string selectedModel;
 
+        private List<string> imageSources = new List<string>(); 
 
 
         private viewModel viewModel;
+        string adUrl = "https://arazmarket.az/";
+        string adUrl1 = "https://arazmarket.az/";
 
         public MainView()
         {
@@ -34,6 +38,12 @@ namespace WpfApp3.Views
 
         viewModel = new viewModel();
             DataContext = viewModel;
+            Model_SelectionChanged(model, null);
+ 
+
+            LoadAd(adUrl);
+            LoadAd(adUrl1);
+
         }
 
 
@@ -47,32 +57,44 @@ namespace WpfApp3.Views
                 {
                     CarDetailsView carDetailsView = new CarDetailsView(selectedCar);
                     carDetailsView.Show();
-                }
 
-                if (!string.IsNullOrEmpty(viewModel.SelectedMarka) && !string.IsNullOrEmpty(viewModel.SelectedModel))
-                {
-                    List<Image> imagesToRemove = new List<Image>();
-                    foreach (UIElement element in imageStackPanel.Children)
-                    {
-                        if (element is Image image && image != clickedImage)
-                        {
-                            imagesToRemove.Add(image);
-                        }
-                    }
-
-                    foreach (Image image in imagesToRemove)
-                    {
-                        imageStackPanel.Children.Remove(image);
-                    }
+                    // Seçili arabayı viewModel'e atayarak, diğer bilgileri de güncellemek
+                    viewModel.SelectedModel = selectedCar.Model;
+                    viewModel.SelectedMarka = GetSelectedMarkaFromModel(selectedCar.Model);
                 }
             }
         }
+         
+        private string GetSelectedMarkaFromModel(string selectedModel)
+        {
+            switch (selectedModel)
+            {
+                case "E320":
+                case "S300":
+                case "G-63":
+                    return "Mercedes";
+                case "e60":
+                case "e36":
+                    return "BMW";
+                case "camry":
+                case "prius":
+                    return "Toyota";
+                case "tuareg":
+                    return "Wolksvagen";
+                case "challenger":
+                    return "dodge";
+                case "2107": 
+                    return "vaz";
+                case "Priora":
+                    return "lada";
+                case "595":
+                    return "Abarth";
+                default:
+                    return string.Empty;
+            }
+        }
 
-
-
-
-
-
+         
 
         private CarInfo GetCarInfoByTag(string carTag)
         {
@@ -96,10 +118,7 @@ namespace WpfApp3.Views
                     };
                     break;
 
-
-
-
-
+                     
                 case "tuareg":
                     selectedCar = new CarInfo
                     {
@@ -113,11 +132,7 @@ namespace WpfApp3.Views
                         ImageSource = "/Image/tuareg.jpg",
                     };
                     break;
-
-
-
-
-
+                     
                 case "E320":
                     selectedCar = new CarInfo
                     {
@@ -147,9 +162,7 @@ namespace WpfApp3.Views
                         ImageSource = "/Image/60kuza.jpg",
                     };
                     break;
-
-
-
+                     
                 case "camry":
                     selectedCar = new CarInfo
                     {
@@ -163,11 +176,7 @@ namespace WpfApp3.Views
                         ImageSource = "/Image/camry.jpg",
                     };
                     break;
-
-
-
-
-
+                     
                 case "2107":
                     selectedCar = new CarInfo
                     {
@@ -181,11 +190,7 @@ namespace WpfApp3.Views
                         ImageSource = "/Image/07.jpg",
                     };
                     break;
-
-
-
-
-
+ 
                 case "G-63":
                     selectedCar = new CarInfo
                     {
@@ -198,11 +203,7 @@ namespace WpfApp3.Views
                         ImageSource = "/image/qalikk.jpg",
                     };
                     break;
-
-
-
-
-
+ 
                 case "S300":
                     selectedCar = new CarInfo
                     {
@@ -286,6 +287,7 @@ namespace WpfApp3.Views
             if (DataContext is viewModel viewModel)
             {
                 viewModel.modelNames.Clear();
+                imageSources.Clear(); // Yeni bir marka seçildiğinde, imageSources listesini temizleyelim.
 
                 switch (viewModel.SelectedMarka)
                 {
@@ -297,12 +299,10 @@ namespace WpfApp3.Views
                     case "BMW":
                         viewModel.modelNames.Add("e60");
                         viewModel.modelNames.Add("e36");
-
                         break;
                     case "Toyota":
                         viewModel.modelNames.Add("camry");
                         viewModel.modelNames.Add("prius");
-
                         break;
                     case "Wolksvagen":
                         viewModel.modelNames.Add("tuareg");
@@ -322,10 +322,13 @@ namespace WpfApp3.Views
                     default:
                         break;
                 }
+
+                // ModelComboBox'ın seçimini temizle
+                model.SelectedIndex = -1;
+                // Model_SelectionChanged olayını tetikleyerek yeni arabaları yükleyelim
+                Model_SelectionChanged(model, null);
             }
         }
-
-
 
         private void Model_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -333,73 +336,121 @@ namespace WpfApp3.Views
             {
                 string selectedModel = comboBox.SelectedItem.ToString();
 
-
                 if (viewModel != null)
                 {
-                    string imageSource = GetImageSourceByModel(selectedModel);
+                    List<string> newImageSources = GetImageSourcesByModel(selectedModel);
 
-                    selectedModelImage.Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute));
-
+                    // Yeni model seçildiğinde, mevcut imageStackPanel'i temizleyelim
                     imageStackPanel.Children.Clear();
-                    Image selectedImage = new Image
+
+                    double xPosition = 0;
+                    double yPosition = 30;
+                    double xSpacing = 5;
+                    double ySpacing = 5;
+
+                    foreach (var imageSource in newImageSources)
                     {
-                        Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute)),
-                        Width = 154,
-                        Height = 108,
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        VerticalAlignment = VerticalAlignment.Top
-                    };
-                    selectedImage.MouseLeftButtonDown += CarImage_Click;
-                    selectedImage.Tag = selectedModel;
-                    imageStackPanel.Children.Add(selectedImage);
+                        Image selectedImage = new Image
+                        {
+                            Source = new BitmapImage(new Uri(imageSource, UriKind.RelativeOrAbsolute)),
+                            Width = 154,
+                            Height = 108,
+                            Margin = new Thickness(5),
+                            Tag = selectedModel
+                        };
+
+                        Canvas.SetLeft(selectedImage, xPosition);
+                        Canvas.SetTop(selectedImage, yPosition);
+                        imageStackPanel.Children.Add(selectedImage);
+
+                        xPosition += selectedImage.Width + xSpacing;
+
+                        if (xPosition + selectedImage.Width + xSpacing > 660)
+                        {
+                            xPosition = 0;
+                            yPosition += selectedImage.Height + ySpacing;
+                        }
+                    }
+
+                    imageSources.Clear();
+                    imageSources.AddRange(newImageSources);
                 }
             }
         }
 
-
-
-
-
-
-
-
-
-        private string GetImageSourceByModel(string model)
+        private List<string> GetImageSourcesByModel(string model)
         {
 
             switch (model)
             {
                 case "E320":
-                    return "/Image/4goz.jpg";
+                    imageSources.Add("/image/4goz.jpg");
+                    imageSources.Add("/image/60kuza.jpg");
+                    imageSources.Add("/image/e36.jpg");
+                    break;
                 case "S300":
-                    return "/Image/sessot.jpg";
+                    imageSources.Add("/image/sessot.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "G-63":
-                    return "/Image/qalikk.jpg";
+                    imageSources.Add("/image/qalikk.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "e60":
-                    return "/Image/60kuza.jpg";
+                    imageSources.Add("/image/60kuza.jpg");
+                    imageSources.Add("/image/e36.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "camry":
-                    return "/Image/camry.jpg";
+                    imageSources.Add("/image/camry.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "2107":
-                    return "/Image/07.jpg";
+                    imageSources.Add("/image/07.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "challenger":
-                    return "/Image/dodge.jpg";
+                    imageSources.Add("/image/dodge.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "tuareg":
-                    return "/Image/tuareg.jpg";
+                    imageSources.Add("/image/tuareg.jpg");
+                    imageSources.Add("/image/E320_2.jpg");
+                    imageSources.Add("/image/E320_3.jpg");
+                    break;
                 case "Priora":
-                    return "/Image/priora.jpg";
-       
-                case "prius":
-                    return "/Image/prius.jpg";
+                    imageSources.Add("/Image/priora.jpg");
+                    imageSources.Add("/Image/E320_2.jpg");
+                    imageSources.Add("/Image/E320_3.jpg");
+                    break;
 
+                case "prius":
+                    imageSources.Add("/Image/prius.jpg");
+                    imageSources.Add("/Image/E320_2.jpg");
+                    imageSources.Add("/Image/E320_3.jpg");
+                    break;
                 case "e36":
-                    return "/Image/e36.jpg";
+                    imageSources.Add("/Image/e36.jpg");
+                    imageSources.Add("/Image/E320_2.jpg");
+                    imageSources.Add("/Image/E320_3.jpg");
+                    break;
 
                 case "595":
-                    return "/Image/abart.jpg";
+                    imageSources.Add("/Image/abart.jpg");
+                    imageSources.Add("/Image/E320_2.jpg");
+                    imageSources.Add("/Image/E320_3.jpg");
+                    break;
                 default:
 
-                    return "";
+                    return null;
             }
+
+            return imageSources;
         }
         public class CarInfo
         {
@@ -490,5 +541,42 @@ namespace WpfApp3.Views
             userImage.Source = new BitmapImage(heartResourceUri);
             selectionTexttu.Foreground = new SolidColorBrush(Colors.SlateGray);
         }
+
+        private void LoadAd(string url)
+        {
+            try
+            {
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                // Reklam yüklenirken hata olursa burada işleme alınabilir.
+                MessageBox.Show("Reklam yüklenirken bir hata oluştu: " + ex.Message);
+            }
+
+
+
+            try
+            {
+                // Reklamı yükle
+                webBrowser1.Navigate(new Uri(url));
+            }
+            catch (Exception ex)
+            {
+                // Reklam yüklenirken hata olursa burada işleme alınabilir.
+                MessageBox.Show("Reklam yüklenirken bir hata oluştu: " + ex.Message);
+            }
+
+
+
+
+
+        }
+
     }
+
+
 }

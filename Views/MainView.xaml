@@ -8,9 +8,9 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
     mc:Ignorable="d"
-        Title="MainView" Height="450" Width="870">
+        Title="MainView" Height="735" Width="1300">
 
-    <Grid  Height="450" Width="870">
+    <Grid  Height="450" Width="1300">
 
 
         <Grid.RowDefinitions>
@@ -23,38 +23,33 @@
 
 
 
-
-
-
-
-
-        <StackPanel Grid.Row="0" Margin="0,0,0,50" Background="#E1E1E1">
-            <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="68" Height="25" Margin="0,6,650,0" Background="Transparent" BorderBrush="Transparent">
+        <StackPanel Grid.Row="0" Margin="210,0,180,50" Background="#E1E1E1">
+            <Button x:Name="myImageButton" MouseEnter="myImageButton_MouseEnter" MouseLeave="myImageButton_MouseLeave" Width="52" Height="25" Margin="-50,6,650,0" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel >
                     <TextBlock x:Name="selectionText" Text="Tap.az" Foreground="SlateGray" FontSize="15" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="myImageButton1" MouseEnter="myImageButton1_MouseEnter" MouseLeave="myImageButton1_MouseLeave" Width="68" Height="25" Margin="120,-25,650,0" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="myImageButton1" MouseEnter="myImageButton1_MouseEnter" MouseLeave="myImageButton1_MouseLeave" Width="68" Height="25" Margin="70,-25,650,0" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel >
                     <TextBlock x:Name="selectionText1" Text="Bina.az" Foreground="SlateGray" FontSize="15" />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="myImageButton2" MouseEnter="myImageButton2_MouseEnter" MouseLeave="myImageButton2_MouseLeave" Height="25" Margin="200,-25,600,0" Background="Transparent" BorderBrush="Transparent" Width="62">
+            <Button x:Name="myImageButton2" MouseEnter="myImageButton2_MouseEnter" MouseLeave="myImageButton2_MouseLeave" Height="25" Margin="150,-25,600,0" Background="Transparent" BorderBrush="Transparent" Width="62">
                 <StackPanel >
                     <TextBlock x:Name="selectionText2" Text="Boss.az" Foreground="SlateGray" FontSize="15" Width="64"  />
                 </StackPanel>
             </Button>
 
-            <Button x:Name="ImageButton" MouseEnter="ImageButton_MouseEnter" MouseLeave="ImageButton_MouseLeave"  Margin="450,-26,0,0" Width="108" Height="24" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="ImageButton" MouseEnter="ImageButton_MouseEnter" MouseLeave="ImageButton_MouseLeave"  Margin="550,-26,0,0" Width="108" Height="24" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel Orientation="Horizontal">
                     <Image x:Name="heartImage" Source="/Red_image/heart.png" Margin="0,0,5,0"/>
                     <TextBlock x:Name="selectionTextt" Text="Seçilmişler" Foreground="SlateGray" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
 
-            <Button x:Name="ImageButtonu" MouseEnter="ImageButtonn_MouseEnter" MouseLeave="ImageButtonn_MouseLeave"  Margin="650,-26,0,0" Width="84" Height="24" Background="Transparent" BorderBrush="Transparent">
+            <Button x:Name="ImageButtonu" MouseEnter="ImageButtonn_MouseEnter" MouseLeave="ImageButtonn_MouseLeave"  Margin="750,-26,0,0" Width="84" Height="24" Background="Transparent" BorderBrush="Transparent">
                 <StackPanel Orientation="Horizontal">
                     <Image x:Name="userImage" Source="/Red_image/user.png" Margin="0,0,5,0"/>
                     <TextBlock x:Name="selectionTexttu" Text="Giris" Foreground="SlateGray" VerticalAlignment="Center"/>
@@ -62,7 +57,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Background="Red"  Margin="0,-50,0,100">
+        <StackPanel Grid.Row="1" Background="Red"  Margin="210,-50,180,100">
             <TextBlock Text="Turbo.az" Foreground="White" FontSize="25" Margin="80,4,0,0" FontWeight="DemiBold"></TextBlock>
             <TextBlock Text="Butun elanlar" FontSize="15" Foreground="White" Margin="220,-25,500,0"></TextBlock>
             <TextBlock Text="Avtosalonlar" FontSize="15" Foreground="White" Margin="340,-25,390,0"></TextBlock>
@@ -70,7 +65,7 @@
 
 
         </StackPanel>
-        <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="0,-100,0,100">
+        <StackPanel Grid.Row="2" Background="#E1E1E1" Margin="210,-100,180,100">
             <ComboBox x:Name="marka" HorizontalAlignment="Left" Margin="50,20,0,0" Text=" " Width="136" Height="35" 
           ItemsSource="{Binding markaNames}" SelectedItem="{Binding SelectedMarka}" 
           SelectionChanged="Marka_SelectionChanged" />
@@ -80,37 +75,38 @@
 
             <Button Content="Button" Width="136" Height="35" Margin="250,-35,0,0"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Background="#ECECEC" Margin="0,-100,0,150">
+        <StackPanel Grid.Row="3" Background="#ECECEC" Margin="210,-100,180,150">
             <TextBlock Text="Butun elanlar" FontSize="23" Foreground="DarkSlateGray" FontWeight="DemiBold" Margin="50,5,0,0"></TextBlock>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Margin="0,0,0,0" Background="#F5F5F5">
-            <WrapPanel x:Name="imagePanel" Grid.Row="4" Margin="0,-150,0,0" Background="#F5F5F5" Grid.RowSpan="3">
-                <ScrollViewer Background="Transparent" Height="224" Width="660" Margin="100,0,0,0">
-                    <Canvas x:Name="imageStackPanel"  Height="906" >
-                        <Image x:Name="selectedModelImage"  Width="158" Height="141" Margin="30,26,0,0" Stretch="UniformToFill" />
-                        <Image Source="/image/priora.jpg"  Width="158" Height="141" Canvas.Left="20" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora"/>
-                        <Image Source="/Image/tuareg.jpg"  Width="158" Height="141" Canvas.Left="206" Canvas.Top="150" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="tuareg"/>
-                        <Image Source="/Image/4goz.jpg"  Width="158" Height="141" Canvas.Left="424" Canvas.Top="145" MouseLeftButtonUp="CarImage_Click" Tag="E320" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        <Image Source="/Image/60kuza.jpg"  Width="158" Height="141" Canvas.Left="20" Canvas.Top="150" MouseLeftButtonUp="CarImage_Click" Tag="e60" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        <Image Source="/Image/camry.jpg"  Width="158" Height="141" HorizontalAlignment="Left" Canvas.Left="422" Canvas.Top="14" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry"/>
-                        <Image Source="/Image/07.jpg"  Width="158" Height="141" Canvas.Left="223" Canvas.Top="9" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="2107"/>
-                        <Image Source="/image/qalikk.jpg"  Width="158" Height="141" Canvas.Left="30" Canvas.Top="297" MouseLeftButtonUp="CarImage_Click" Tag="G-63" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        <Image Source="/image/sessot.jpg"  Width="158" Height="141" Canvas.Left="228" Canvas.Top="297" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="S300"/>
-                        <Image Source="/image/dodge.jpg" Width="154" Height="161" Canvas.Left="430" Canvas.Top="273" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger"/>
-                        <Image Source="/image/e36.jpg" Width="158" Height="162" Canvas.Left="30" Canvas.Top="385" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonUp="CarImage_Click" Tag="e36"/>
-                        <Image Source="/image/prius.jpg" Width="151" Height="140" Canvas.Left="230" Canvas.Top="417" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="prius"/>
-                        <Image Source="/image/abart.jpg" Width="151" Height="140"  Margin="220,0,0,0" Canvas.Left="230" Canvas.Top="417" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="595"/>
-
-                    </Canvas>
-                </ScrollViewer>
-            </WrapPanel>
+        <StackPanel Grid.Row="2" Margin="210,30,180,-109" Background="#F5F5F5" Grid.RowSpan="3">
 
 
-
+            <ScrollViewer Background="Transparent" Height="356" Width="820" Margin="80,0,0,0">
+                <Canvas x:Name="imageStackPanel" Height="906" Width="655">
+                    <Image x:Name="selectedModelImage" Source="{Binding ImageSource}"  Tag="{Binding DataContext.SelectedModel, ElementName=modelComboBox}" MouseDown="CarImage_Click" Width="158" Height="141" Margin="30,26,0,0" Stretch="UniformToFill" />
+                    <Image Source="/image/priora.jpg" Width="238" Height="159" Canvas.Left="-60" Canvas.Top="15" HorizontalAlignment="Center" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="Priora" />
+                    <Image Source="/Image/tuareg.jpg" Width="255" Height="168" Canvas.Left="175" Canvas.Top="187" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="tuareg" />
+                    <Image Source="/Image/4goz.jpg" Width="226" Height="160" Canvas.Left="412" Canvas.Top="187" MouseLeftButtonUp="CarImage_Click" Tag="E320" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Image Source="/Image/60kuza.jpg" Width="212" Height="137" Canvas.Left="-47" Canvas.Top="187" MouseLeftButtonUp="CarImage_Click" Tag="e60" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Image Source="/Image/camry.jpg" Width="226" Height="164" HorizontalAlignment="Center" Canvas.Left="412" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="camry" Canvas.Top="12" />
+                    <Image Source="/Image/07.jpg" Width="223" Height="159" Canvas.Left="182" Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="2107" />
+                    <Image Source="/image/qalikk.jpg" Width="202" Height="177" Canvas.Left="-47" Canvas.Top="328" MouseLeftButtonUp="CarImage_Click" Tag="G-63" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Image Source="/image/sessot.jpg" Width="236" Height="140" Canvas.Left="170" Canvas.Top="353" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="S300" />
+                    <Image Source="/image/dodge.jpg" Width="222" Height="144" Canvas.Left="414" Canvas.Top="347" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="challenger" />
+                    <Image Source="/image/e36.jpg" Width="255" Height="159" Canvas.Top="508" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="e36" Canvas.Left="-90" />
+                    <Image Source="/image/prius.jpg" Width="222" Height="184" Canvas.Left="177" Canvas.Top="496" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="prius" />
+                    <Image Source="/image/abart.jpg" Width="246" Height="226" Canvas.Left="409" Canvas.Top="496" HorizontalAlignment="Left" VerticalAlignment="Top" MouseLeftButtonUp="CarImage_Click" Tag="595" />
+                </Canvas>
+            </ScrollViewer>
         </StackPanel>
 
+        <WebBrowser Name="webBrowser" Margin="0,0,1090,20" Grid.RowSpan="5" />
+        <WebBrowser Name="webBrowser1" Margin="0,0,1090,-132" Grid.RowSpan="5" />
 
+
+        <WebBrowser Name="webBrowser2" Margin="1125,0,0,20" Grid.RowSpan="5" />
+        <WebBrowser Name="webBrowser3" Margin="1125,0,0,20" Grid.RowSpan="5" />
 
 
     </Grid>
